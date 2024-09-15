@@ -49,7 +49,7 @@ class Game {
                     askForInput()
                 }
                 else if (parseInt(usersMove) <= this.movesLength){
-                    console.log('Your move: ', usersMove)
+                    console.log('Your move: ', this.moves[usersMove - 1])
                     console.log('Computer move: ', computersMove) 
                     console.log(gameRules.result(this.moves[usersMove - 1],computersMove))
                     console.log('HMAC key:', key.toString('hex').toUpperCase())
