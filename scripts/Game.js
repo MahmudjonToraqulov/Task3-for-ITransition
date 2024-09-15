@@ -32,7 +32,6 @@ class Game {
         });
           
         const askForInput = () => {
-            console.log('computer move -> ', computersMove)
             this.displayInfo(hmac)
             rl.question('Enter your move: ', (usersMove) => {
                 if (usersMove === '0'){
@@ -50,6 +49,8 @@ class Game {
                     askForInput()
                 }
                 else if (parseInt(usersMove) <= this.movesLength){
+                    console.log('Your move: ', usersMove)
+                    console.log('Computer move: ', computersMove) 
                     console.log(gameRules.result(this.moves[usersMove - 1],computersMove))
                     console.log('HMAC key:', key.toString('hex').toUpperCase())
                     rl.close()
@@ -67,8 +68,8 @@ class Game {
     }
 
     displayInfo(hmac) {
-        console.log('Available moves:')
         console.log('HMAC: ', hmac.toUpperCase())
+        console.log('Available moves:')
         this.moves.forEach((eachMove,key) => {
             console.log(key + 1, eachMove)
         })
